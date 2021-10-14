@@ -1,0 +1,20 @@
+---
+const res = await fetch(`https://ffconf.org/api/event/2018`); // @TODO: How to inject env vars?!
+const sessions = await res.json();
+---
+<html lang="en">
+<head>
+</head>
+<body>
+    <main>
+        <p>Got {sessions.length} Sessions:</p>
+        <ul>
+            {sessions.map(session => (
+                <li>
+                    <a href={`/sessions/${session.slug}`}>“{session.title}”</a> by {session.speaker.name}
+                </li>
+            ))}
+        </ul>
+    </main>
+</body>
+</html>

@@ -1,0 +1,33 @@
+---
+
+export async function getStaticPaths() {
+  const res = await fetch(`https://ffconf.org/api/event/2018`);
+  const sessions = await res.json();
+
+  const staticPaths = sessions ? sessions.map(session => ({
+        params: {
+            slug: session.slug,
+        },
+        props: {
+            session
+        }
+    })) : {};
+
+  return staticPaths;
+}
+
+const { session } = Astro.props;
+const { params } = Astro.request;
+
+---
+<html lang="en">
+<head>
+</head>
+<body>
+    <main>
+        <h1>{session.title}</h1>
+        <p>{session.description}</p>
+        <p>By {session.speaker.name}</p>
+    </main>
+</body>
+</html>
