@@ -15,4 +15,7 @@ export default {
   renderers: [
     "@astrojs/renderer-react"
   ],
+  plugins: [
+    "@snowpack/plugin-dotenv",
+  ],
 };

@@ -9,7 +9,8 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^0.20.11",
-    "@astrojs/renderer-react": "^0.2.2"
+    "@astrojs/renderer-react": "^0.2.2",
+    "@snowpack/plugin-dotenv": "^2.2.0",
+    "astro": "^0.20.11"
   }
 }
